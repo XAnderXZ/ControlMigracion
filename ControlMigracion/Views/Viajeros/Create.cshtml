@@ -1,54 +1,50 @@
-﻿@model ControlMigracion.Models.Viaje
+﻿@model ControlMigracion.Models.Viajero
 
 @{
-    ViewData["Title"] = "Crear Viaje";
+    ViewData["Title"] = "Crear Viajero";
 }
 
-<h1>Crear Viaje</h1>
+<h1>Crear Viajero</h1>
 
-<h4>Viaje</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        @if (TempData["ErrorMessage"] != null)
-        {
-            <div class="alert alert-danger" role="alert">
-                @TempData["ErrorMessage"]
-            </div>
-        }
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ViajeroID" class="control-label"></label>
-                <select asp-for="ViajeroID" class="form-control" asp-items="ViewBag.ViajeroID">
-                    <option value="">-- Seleccione un viajero --</option>
-                </select>
-                <span asp-validation-for="ViajeroID" class="text-danger"></span>
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaInicio" class="control-label"></label>
-                <input asp-for="FechaInicio" class="form-control" />
-                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaFin" class="control-label"></label>
-                <input asp-for="FechaFin" class="form-control" />
-                <span asp-validation-for="FechaFin" class="text-danger"></span>
+                <label asp-for="Pasaporte" class="control-label"></label>
+                <input asp-for="Pasaporte" class="form-control" />
+                <span asp-validation-for="Pasaporte" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Destino" class="control-label"></label>
-                <input asp-for="Destino" class="form-control" />
-                <span asp-validation-for="Destino" class="text-danger"></span>
+                <label asp-for="FechaNacimiento" class="control-label"></label>
+                <input asp-for="FechaNacimiento" class="form-control" type="date" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="Nacionalidad" class="control-label"></label>
+                <input asp-for="Nacionalidad" class="form-control" />
+                <span asp-validation-for="Nacionalidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver a la lista</a>
 </div>
 
 @section Scripts {

@@ -32,11 +32,11 @@ Install-Package Microsoft.EntityFrameworkCore.Tools -Version 7.0.5
 
 ## Configuración de la Base de Datos
 
-1. Abrir el archivo `appsettings.json` en el Explorador de soluciones y verificar la cadena de conexión:
+1. Abrir el archivo `appsettings.json` en el Explorador de soluciones y cambiar donde dice "Tu-Servidor" por el servidor de tu dispositivo donde ejecutas el programa:
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ControlMigracion;Trusted_Connection=True;MultipleActiveResultSets=true"
-}
+    "DefaultConnection": "Server=Tu-Servidor;Database=ControlMigracion;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True"
+  },
 
 2. En la Consola del Administrador de Paquetes, ejecutar los siguientes comandos para crear y aplicar las migraciones:
 
@@ -45,16 +45,23 @@ Update-Database
 
 3. Recientemente se agregó una funcionalidad para iniciar sesión, por lo cual para que esa nueva funcion corra de manera correcta, debe ejecutar los siguientes comandos:
 
-Add-Migration AddRoleToUser
+Add-Migration AddRoleToUsuario
 Update-Database
 
-4. Tambien se agregó una pestaña de viajes, donde se pueden crear viajes para los viajeros registrados en el sistema, para que esto funcione correctamente, solo debes ejecutar estos comando 
+4. Seguidamente debes ejecutar en el script de la base de datos lo siguiente:
+
+ALTER TABLE Usuario
+ADD Rol NVARCHAR(50) NOT NULL DEFAULT 'Usuario';
+
+
+
+5. Tambien se agregó una pestaña de viajes, donde se pueden crear viajes para los viajeros registrados en el sistema, para que esto funcione correctamente, solo debes ejecutar estos comando 
 en la terminal de visual:
 
 Add-Migration AddDestinoToViaje
 Update-Database
 
-5. Seguidamente debes ejecutar en el script de la base de datos lo siguiente:
+6. Seguidamente debes ejecutar en el script de la base de datos lo siguiente:
 
 ALTER TABLE Viaje
 ADD Destino NVARCHAR(100) NOT NULL DEFAULT '';

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ControlMigracion.Data;
 using ControlMigracion.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering; // Para SelectList
 
 namespace ControlMigracion.Controllers
 {
@@ -14,6 +15,17 @@ namespace ControlMigracion.Controllers
         public UsuariosController(ControlMigracionContext context)
         {
             _context = context;
+        }
+
+        // Método para cargar roles en ViewBag
+        private void CargarRoles()
+        {
+            ViewBag.Roles = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Administrador", Value = "Administrador" },
+                new SelectListItem { Text = "Usuario", Value = "Usuario" },
+                new SelectListItem { Text = "Moderador", Value = "Moderador" }
+            };
         }
 
         // GET: Usuarios
@@ -43,6 +55,7 @@ namespace ControlMigracion.Controllers
         // GET: Usuarios/Create
         public IActionResult Create()
         {
+            CargarRoles(); // Cargar roles en el ViewBag
             return View();
         }
 
@@ -57,6 +70,8 @@ namespace ControlMigracion.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            CargarRoles(); // Volver a cargar roles en caso de error
             return View(usuario);
         }
 
@@ -73,6 +88,8 @@ namespace ControlMigracion.Controllers
             {
                 return NotFound();
             }
+
+            CargarRoles(); // Cargar roles en el ViewBag
             return View(usuario);
         }
 
@@ -106,6 +123,8 @@ namespace ControlMigracion.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            CargarRoles(); // Volver a cargar roles en caso de error
             return View(usuario);
         }
 
@@ -144,4 +163,3 @@ namespace ControlMigracion.Controllers
         }
     }
 }
-

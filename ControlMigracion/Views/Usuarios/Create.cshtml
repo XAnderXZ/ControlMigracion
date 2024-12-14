@@ -32,6 +32,13 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Rol" class="control-label"></label>
+                <select asp-for="Rol" class="form-control" asp-items="ViewBag.Roles">
+                    <option value="">Seleccione un rol</option>
+                </select>
+                <span asp-validation-for="Rol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
@@ -47,4 +54,3 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-
