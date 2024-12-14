@@ -26,6 +26,8 @@ namespace ControlMigracion.Models
         [Required(ErrorMessage = "La nacionalidad es requerida")]
         [StringLength(50, ErrorMessage = "La nacionalidad no puede tener más de 50 caracteres")]
         public string Nacionalidad { get; set; }
+
+        public string NombreCompleto => $"{Nombre} {Apellido}";
     }
 }
 

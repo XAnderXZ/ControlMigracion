@@ -42,3 +42,19 @@ Install-Package Microsoft.EntityFrameworkCore.Tools -Version 7.0.5
 
 Add-Migration InitialCreate
 Update-Database
+
+3. Recientemente se agregó una funcionalidad para iniciar sesión, por lo cual para que esa nueva funcion corra de manera correcta, debe ejecutar los siguientes comandos:
+
+Add-Migration AddRoleToUser
+Update-Database
+
+4. Tambien se agregó una pestaña de viajes, donde se pueden crear viajes para los viajeros registrados en el sistema, para que esto funcione correctamente, solo debes ejecutar estos comando 
+en la terminal de visual:
+
+Add-Migration AddDestinoToViaje
+Update-Database
+
+5. Seguidamente debes ejecutar en el script de la base de datos lo siguiente:
+
+ALTER TABLE Viaje
+ADD Destino NVARCHAR(100) NOT NULL DEFAULT '';

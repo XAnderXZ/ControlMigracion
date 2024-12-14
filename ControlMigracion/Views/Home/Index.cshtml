@@ -3,7 +3,14 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bienvenido al Sistema de Control de Migración</h1>
-    <p>Seleccione una opción del menú para comenzar.</p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h1 class="display-4">Bienvenido al Sistema de Control de Migración</h1>
+        <p>Seleccione una opción del menú para comenzar.</p>
+    }
+    else
+    {
+        <partial name="_LoginPartial" />
+    }
 </div>
 

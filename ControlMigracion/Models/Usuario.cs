@@ -22,6 +22,9 @@ namespace ControlMigracion.Models
         [Required(ErrorMessage = "La contraseña es requerida")]
         [StringLength(255, MinimumLength = 6, ErrorMessage = "La contraseña debe tener entre 6 y 255 caracteres")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "El rol es requerido")]
+        public string Rol { get; set; }
     }
 }
 

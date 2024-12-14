@@ -1,0 +1,43 @@
+﻿@model ControlMigracion.Models.Viaje
+
+@{
+    ViewData["Title"] = "Detalles del Viaje";
+}
+
+<h1>Detalles del Viaje</h1>
+
+<div>
+    <h4>Viaje</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Viajero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Viajero.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaFin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaFin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Destino)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Destino)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ViajeID" class="btn btn-primary">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>
+

@@ -1,18 +1,19 @@
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #17a2b8;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    --info-color: #3498db;
+    --light-color: #ecf0f1;
+    --dark-color: #34495e;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
+    background-color: var(--light-color);
 }
 
 .navbar {
@@ -21,7 +22,7 @@ body {
 }
 
 .navbar-brand, .navbar-nav .nav-link {
-    color: var(--light-color) !important;
+    color: white !important;
     transition: color 0.3s ease;
 }
 
@@ -40,44 +41,22 @@ body {
 }
 
     .btn-primary:hover {
-        background-color: darken(var(--primary-color), 10%);
-        border-color: darken(var(--primary-color), 10%);
+        background-color: #2980b9;
+        border-color: #2980b9;
     }
 
-.table {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    overflow: hidden;
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-    .table th, .table td {
-        border: none;
-        padding: 0.75rem;
-        vertical-align: top;
-        border-top: 1px solid #dee2e6;
+    .login-form h2 {
+        color: var(--primary-color);
     }
-
-    .table thead th {
-        background-color: var(--light-color);
-        border-bottom: 2px solid #dee2e6;
-        font-weight: 600;
-    }
-
-.table-hover tbody tr:hover {
-    background-color: rgba(0, 123, 255, 0.075);
-}
-
-@media (max-width: 768px) {
-    .table-responsive {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-}
 
 .form-control {
     border-radius: 0.25rem;
@@ -86,22 +65,22 @@ body {
 
     .form-control:focus {
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    }
-
-.card {
-    border: none;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    transition: box-shadow 0.3s ease;
-}
-
-    .card:hover {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
     }
 
 .footer {
-    background-color: var(--light-color);
+    background-color: var(--secondary-color);
+    color: white;
     padding: 1rem 0;
     margin-top: 2rem;
+}
+
+    .footer a {
+        color: var(--light-color);
+    }
+
+@media (max-width: 768px) {
+    .login-form {
+        padding: 1rem;
+    }
 }

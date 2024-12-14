@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using ControlMigracion.Data;
 using ControlMigracion.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ControlMigracion.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class UsuariosController : Controller
     {
         private readonly ControlMigracionContext _context;
@@ -47,7 +49,7 @@ namespace ControlMigracion.Controllers
         // POST: Usuarios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nombre,Apellido,Email,Password")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Nombre,Apellido,Email,Password,Rol")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +79,7 @@ namespace ControlMigracion.Controllers
         // POST: Usuarios/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UsuarioID,Nombre,Apellido,Email,Password")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("UsuarioID,Nombre,Apellido,Email,Password,Rol")] Usuario usuario)
         {
             if (id != usuario.UsuarioID)
             {
